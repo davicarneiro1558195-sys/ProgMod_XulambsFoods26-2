@@ -77,7 +77,7 @@ public class Pizza {
 		return PRECO_BASE + valorAdicionais();
 	}
 
-	private double calcularValorAdicionais() {
+	private double valorAdicionais() {
 		return quantidadeIngredientes * VALOR_INGREDIENTE;
 	}
 

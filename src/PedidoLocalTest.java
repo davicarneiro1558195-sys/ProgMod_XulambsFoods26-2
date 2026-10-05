@@ -4,13 +4,13 @@ import static org.junit.Assert.assertTrue;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-public class PedidoTest {
+public class PedidoLocalTest {
     Pedido pedido;
     Pizza pizzaVazia;
 
     @BeforeEach 
     public void setUp(){
-        pedido = new Pedido();
+        pedido = new PedidoLocal();
         pizzaVazia = new Pizza();
         pedido.adicionarPizza(pizzaVazia);
     }
@@ -40,7 +40,7 @@ public class PedidoTest {
         //Act
         double preco = pedido.precoAPagar();
         //Assert
-        assertEquals(29d, preco, 0.01);
+        assertEquals(29d * 1.1, preco, 0.01);
     }
 
     @Test 
@@ -51,7 +51,7 @@ public class PedidoTest {
         //Act
         double preco = pedido.precoAPagar();
         //Assert
-        assertEquals(68d, preco, 0.01);
+        assertEquals(68d * 1.1, preco, 0.01);
     }
 
     @Test 
@@ -62,7 +62,7 @@ public class PedidoTest {
         String cupom = pedido.toString();
         assertTrue(
             cupom.contains("2 pizzas") &&
-            cupom.contains("58,00")
+            cupom.contains("63,80")
         );    
     }
 }
